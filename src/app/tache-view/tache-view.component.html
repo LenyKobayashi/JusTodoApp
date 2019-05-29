@@ -1,0 +1,83 @@
+
+
+
+<form> 
+  <!-- Block affichage de titre tache-->
+      
+          <fieldset>
+          <!--- Block affichage de la tache -->
+              <div>
+                  <!--- Block affichage titre tache -->
+                  <div>
+                  <label>titre : {{monTodo.title}}</label>
+                  <!-- <div>titre : {{titre}}</div> -->
+                  <input  type= "text" class="form-control"
+                  id=inputText [(ngModel)]="monTodo.title"
+                  placeholder="modifier titre tache" name="title">
+                  </div>
+
+                  <!---block bouton etat-->
+                  <div>
+                  <label>état </label>
+                  <input type="checkbox" [checked]="monTodo.complete" name="complete">
+                  </div>  
+              
+                  <!--- Block affichage descriptif-->
+                  <div>
+                  <label>descriptif : {{ descriptionName }}</label>
+                  <input  type= "textarea"
+                  rows="4"
+                  cols="50"
+                  maxlength="40"
+                  id="description"
+                  placeholder="modifier descriptif" 
+                  [(ngModel)]="descriptionName" 
+                  name="descriptif">
+                  </div>
+                  <!--- Block affichage de acteur-->
+                  <div>
+                  <label>acteur  : {{acteurName}} </label> 
+                  <input 
+                  list= "acteur" 
+                  type= "text"
+                  id= "inputText" 
+                  placeholder="modifier acteur" 
+                  [(ngModel)]="acteurName" 
+                  name="acteurName">
+                  <datalist id="acteur">
+                      <option value ="Yves">
+                      <option value ="Jeremy">
+                      <option value ="Leny">
+                  </datalist>
+                  </div>
+                  <!--- Block affichage de la duedate-->
+                  <div>
+                  <label>duedate</label> <input  type= "date"
+                  id=inputText
+                  placeholder="modifier date de fin ">
+                  </div>
+
+                  
+              </div>
+          
+              
+          <!-- Block Bouton valider --->
+              <div class="button">
+          
+                  <button type="submit" (click)="todoModifie(todo)"> valider  </button>
+   
+                
+              </div>
+
+           <!--FOOTER avec compteur-->
+           <footer class="footer" *ngIf="todos.length > 0">
+            <span class="todo-count"><strong>{{todos.length}}</strong> {{todos.length == 1 ? 'item' : 'items'}} restant</span>
+          </footer>    
+    
+          
+          </fieldset>
+  </form> 
+
+
+  
+
